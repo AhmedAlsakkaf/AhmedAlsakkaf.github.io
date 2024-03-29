@@ -696,7 +696,7 @@
 
 
         
-        <div class="work__card mix app">
+        <div class="work__card mix web">
           <img src="img/work-1.webp" alt="" class="work__img">
           <h3 class="work__title">Web Design</h3>
 
@@ -861,6 +861,39 @@
     </section>
 
 
+
+
+    <!--Portoflio POPup-->
+    <div class="portfolio__popup">
+      <div class="portfolio__popup-inner">
+        <div class="portfolio__popup-content grid">
+          <span class="portfolio__popup-close"><i class="uil uil-times"></i></span>
+          <div class="pp__thumbnail">
+            <img src="img/work-2.webp" alt="" class="portfolio__popup-img">
+          </div>
+          <div class="portfolio__popup-info">
+            <div class="portfolio__popup-subtitle">Featured - <span>Design</span></div>
+            <div class="portfolio__popup-body">
+
+              
+            <h3 class="details__title">something</h3>
+            <p class="details__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, et!</p>
+            <ul class="details__info">
+              <li>Created - <span>4 dec 2022</span></li>
+              <li>Technologies - <span>html</span></li>
+              <li>Role - <span>frontend</span></li>
+              <li>View - <span><a href="#">www.domain.com</a></span></li>
+            </ul>
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!--Services-->
     <!--Testimonials-->
     <!--Contact-->
@@ -881,11 +914,99 @@
 
 
       <!--main-->
-  <script src="js/main.js"></script>
+  <!-- <script src="js/main.js"></script> -->
 
 
         <!--Mixitup filters-->
   <script src="js/mixitup.min.js"></script>
+
+
+
+  <script>
+
+    const tabs = document.querySelectorAll('[data-target]'),
+    tabContent = document.querySelectorAll('[data-content]')
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+
+        const target = document.querySelector(tab.dataset.target)
+
+        tabContent.forEach(tabContents => {
+          tabContents.classList.remove('skills__active')
+        })
+
+        target.classList.add('skills__active')
+
+        tabs.forEach(tab =>{
+          tab.classList.remove('skills__active')
+        })
+          
+
+        tab.classList.add('skills__active')
+
+      })
+
+    })
+
+
+    /*=============== MIXITUP FILTER PORTFOLIO ===============*/
+    let mixerPortfolio = mixitup('.work__container', {
+      selectors: {
+          target: '.work__card'
+      },
+      animation: {
+          duration: 300
+      }
+    });
+
+
+
+
+    /*===== Link Active Work =====*/
+
+    const linkWork = document.querySelectorAll('.work__item')
+
+    function activeWork(){
+      linkWork.forEach(L=> l.classList.remove('active-work'))
+      this.classList.add('active-work')
+    }
+
+
+    linkWork.forEach(L=> l.addEventListener("click", activeWork))
+
+
+
+
+
+    
+    /*===== Work Popup =====*/
+
+
+    document.addEventListener("click", (e) => {
+      if(e.target.classList.contains("work__button")){
+        togglePortfolioPopup();
+        portfolioItemDetails(e.target.parentElement);
+      }
+    })
+
+
+    function togglePortfolioPopup(){
+      document.querySelector(".portfolio__popup").classList.toggle("open");
+    }
+
+
+    document.querySelector(".portfolio__popup-close").addEventListener("click", togglePortfolioPopup)
+
+
+    function portfolioItemDetails(portfolioItem){
+      document.querySelector(".pp__thumbnail img").src = portfolioItem.querySelector(".work__img").src; 
+    }
+
+  </script>
+
+
+
 
 </body>
 </html>

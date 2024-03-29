@@ -53,16 +53,28 @@ let mixerPortfolio = mixitup('.work__container', {
 const linkWork = document.querySelectorAll('.work__item')
 
 function activeWork(){
-  linkWork.forEach(L=> I.classList.remove('active-work'))
+  linkWork.forEach( L=> l.classList.remove('active-work'))
   this.classList.add('active-work')
 }
 
 
-linkWork.forEach(l=> I.addEventListener("click", activeWork))
+linkWork.forEach(L=> l.addEventListener("click", activeWork))
 
 
 
 /*===== Work Popup =====*/
+
+
+document.addEventListener("click", (e) => {
+  if(e.target.classList.contains("work__button")){
+    togglePortfolioPopup();
+  }
+})
+
+
+function togglePortfolioPopup(){
+  document.querySelector(".portfolio__popup").classList.toggle("open");
+}
 
 
 /*=============== SERVICES MODAL ===============*/
