@@ -10,6 +10,7 @@
 
 
 /*=============== SKILLS TABS ===============*/
+alert("fuck")
 
 const tabs = document.querySelectorAll('[data-target]'),
 tabContent = document.querySelectorAll('[data-content]')
@@ -37,7 +38,10 @@ tabs.forEach(tab => {
 })
 
 
+
+
 /*=============== MIXITUP FILTER PORTFOLIO ===============*/
+
 let mixerPortfolio = mixitup('.work__container', {
   selectors: {
       target: '.work__card'
@@ -90,3 +94,4 @@ function togglePortfolioPopup(){
 
 
 /*=============== SHOW SCROLL UP ===============*/
+

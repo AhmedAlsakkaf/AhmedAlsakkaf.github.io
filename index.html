@@ -9,7 +9,10 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
 
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="style2.css">
+
+  <script src="temp.js"></script>
+
 
 
 
@@ -29,6 +32,9 @@
 
   <!--SideBar-->
 
+  <div class="nav__toggle" id="nav-toggle">
+    <i class="uil uil-bars"></i>
+  </div>
   <aside class="sidebar" id="sidebar">
     <nav class="nav">
 
@@ -73,6 +79,10 @@
 
       <div class="btn__share">
         <i class="uil uil-share-alt social__share"></i>
+      </div>
+
+      <div class="nav__close" id="nav-close">
+        <i class="uil uil-times"></i>
       </div>
 
 
@@ -696,22 +706,22 @@
 
 
         
-        <div class="work__card mix web">
-          <img src="img/work-1.webp" alt="" class="work__img">
+        <div class="work__card mix design">
+          <img src="img/Design1.png" alt="" class="work__img">
           <h3 class="work__title">Web Design</h3>
 
-          <span class="work__button">Demo
+          <span class="work__button">Go
             <i class="uil uil-arrow-right work__button-icon"></i>
           </span>
 
           <div class="portfolio__item-details">
             <h3 class="details__title">The services provide for design</h3>
-            <p class="details__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, et!</p>
+            <p class="details__description">Web Design For a Car Rental System</p>
             <ul class="details__info">
-              <li>Created - <span>4 dec 2022</span></li>
-              <li>Technologies - <span>html css</span></li>
-              <li>Role - <span>frontend</span></li>
-              <li>View - <span><a href="#">www.domain.com</a></span></li>
+              <li>Created - <span>4 Apr 2024</span></li>
+              <li>Technologies - <span>Figma</span></li>
+              <li>Role - <span>Designer</span></li>
+              <li>View - <span><a href="#">https://www.figma.com/file/ZWeEweasbTWQRi7i5c0mu3/Untitled?type=design&node-id=0-1&mode=design&t=XcvnKXDmRHATYmug-0</a></span></li>
             </ul>
           </div>
 
@@ -720,21 +730,21 @@
 
 
         <div class="work__card mix design">
-          <img src="img/work-2.webp" alt="" class="work__img">
-          <h3 class="work__title">brand Design</h3>
+          <img src="img/Design2a.png" alt="" class="work__img">
+          <h3 class="work__title">Web Design</h3>
 
-          <span class="work__button">Demo
+          <span class="work__button">Look
             <i class="uil uil-arrow-right work__button-icon"></i>
           </span>
 
           <div class="portfolio__item-details">
-            <h3 class="details__title">Mobile app landing design and app maintain</h3>
-            <p class="details__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, et!</p>
+            <h3 class="details__title">Web for an AI tool stuttering</h3>
+            <p class="details__description">Web Design for a AI system that is build to help those who face stuttering</p>
             <ul class="details__info">
-              <li>Created - <span>4 jan 2022</span></li>
-              <li>Technologies - <span>Java</span></li>
+              <li>Created - <span>4 Apr 2024</span></li>
+              <li>Technologies - <span>Figma</span></li>
               <li>Role - <span>frontend</span></li>
-              <li>View - <span><a href="#">www.domain.com</a></span></li>
+              <li>View - <span><a href="#">https://www.figma.com/file/ZWeEweasbTWQRi7i5c0mu3/Untitled?type=design&node-id=0-1&mode=design&t=XcvnKXDmRHATYmug-0</a></span></li>
             </ul>
           </div>
 
@@ -904,109 +914,24 @@
 
 
 
+
   </main>
 
 
 
+  <!--Main of JavaScript-->
 
-
-
-
-
-      <!--main-->
-  <!-- <script src="js/main.js"></script> -->
-
-
-        <!--Mixitup filters-->
+  <!--Mixitup filters-->
   <script src="js/mixitup.min.js"></script>
 
 
+  <!--Swiper JS-->
+  
 
-  <script>
-
-    const tabs = document.querySelectorAll('[data-target]'),
-    tabContent = document.querySelectorAll('[data-content]')
-
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-
-        const target = document.querySelector(tab.dataset.target)
-
-        tabContent.forEach(tabContents => {
-          tabContents.classList.remove('skills__active')
-        })
-
-        target.classList.add('skills__active')
-
-        tabs.forEach(tab =>{
-          tab.classList.remove('skills__active')
-        })
-          
-
-        tab.classList.add('skills__active')
-
-      })
-
-    })
-
-
-    /*=============== MIXITUP FILTER PORTFOLIO ===============*/
-    let mixerPortfolio = mixitup('.work__container', {
-      selectors: {
-          target: '.work__card'
-      },
-      animation: {
-          duration: 300
-      }
-    });
-
-
-
-
-    /*===== Link Active Work =====*/
-
-    const linkWork = document.querySelectorAll('.work__item')
-
-    function activeWork(){
-      linkWork.forEach(L=> l.classList.remove('active-work'))
-      this.classList.add('active-work')
-    }
-
-
-    linkWork.forEach(L=> l.addEventListener("click", activeWork))
-
-
-
-
-
-    
-    /*===== Work Popup =====*/
-
-
-    document.addEventListener("click", (e) => {
-      if(e.target.classList.contains("work__button")){
-        togglePortfolioPopup();
-        portfolioItemDetails(e.target.parentElement);
-      }
-    })
-
-
-    function togglePortfolioPopup(){
-      document.querySelector(".portfolio__popup").classList.toggle("open");
-    }
-
-
-    document.querySelector(".portfolio__popup-close").addEventListener("click", togglePortfolioPopup)
-
-
-    function portfolioItemDetails(portfolioItem){
-      document.querySelector(".pp__thumbnail img").src = portfolioItem.querySelector(".work__img").src; 
-    }
-
-  </script>
-
-
+  <!--Main JS-->
+  <script src="js/main.js"></script>
 
 
 </body>
+
 </html>
