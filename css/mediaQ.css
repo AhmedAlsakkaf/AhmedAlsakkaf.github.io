@@ -268,7 +268,7 @@
 
   @keyframes imgFloat{
     50%{
-      transform: translateY(40px);
+      transform: translateY(20px);
     }
   }
 
