@@ -22,7 +22,7 @@
 
 @keyframes imgFloat{
   50%{
-    transform: translateX(40px);
+    transform: translateX(50px);
   }
 }
 

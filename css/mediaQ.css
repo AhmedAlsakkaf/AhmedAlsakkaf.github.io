@@ -272,9 +272,19 @@
     }
   }
 
+
+  /*Animation*/  
+  
   .about__img{
-    animation: none;
+    animation: imgFloat1 5s ease-in-out infinite;
   }
+  @keyframes imgFloat1{
+    50%{
+      transform: translateX(40px);
+    }
+  }
+
+
 
 
   .home__social{
