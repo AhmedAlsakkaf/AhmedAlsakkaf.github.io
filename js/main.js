@@ -10,7 +10,6 @@
 
 
 /*=============== SKILLS TABS ===============*/
-alert("fuck")
 
 const tabs = document.querySelectorAll('[data-target]'),
 tabContent = document.querySelectorAll('[data-content]')
@@ -57,12 +56,12 @@ let mixerPortfolio = mixitup('.work__container', {
 const linkWork = document.querySelectorAll('.work__item')
 
 function activeWork(){
-  linkWork.forEach( L=> l.classList.remove('active-work'))
+  linkWork.forEach( L=> L.classList.remove('active-work'))
   this.classList.add('active-work')
 }
 
 
-linkWork.forEach(L=> l.addEventListener("click", activeWork))
+linkWork.forEach(L=> L.addEventListener("click", activeWork))
 
 
 
