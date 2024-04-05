@@ -261,7 +261,30 @@
     display: block;
     width: 250px;
     justify-self: center;
+    /*Animation*/
+    overflow: hidden;
+    animation: imgFloat 5s ease-in-out infinite;
   }
+
+  @keyframes imgFloat{
+    50%{
+      transform: translateY(20px);
+    }
+  }
+
+
+  /*Animation*/  
+  
+  .about__img{
+    animation: imgFloat1 5s ease-in-out infinite;
+  }
+  @keyframes imgFloat1{
+    50%{
+      transform: translateX(40px);
+    }
+  }
+
+
 
 
   .home__social{

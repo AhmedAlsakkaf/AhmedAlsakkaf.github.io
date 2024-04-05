@@ -59,7 +59,8 @@
 
 .work__button{
   color: var(--skin-color);
-  font-size: var(--small-font-size);
+  font-size: var(--medium-font-size);
+  font-weight: bold;
   display: flex;
   align-items: center;
   column-gap: .25rem;
@@ -136,8 +137,8 @@
 
 .portfolio__popup-close{
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: -1rem;
+  right: -.2rem;
   font-size: 3rem;
   font-weight: bold;
   color: var(--skin-color);

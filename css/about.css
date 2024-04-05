@@ -13,7 +13,21 @@
   width: 480px;
   border-radius: 0.75rem;
   justify-self: center;
+
+  /*Animation*/
+  overflow: hidden;
+  animation: imgFloat 5s ease-in-out infinite;
 }
+
+
+@keyframes imgFloat{
+  50%{
+    transform: translateX(50px);
+  }
+}
+
+
+
 
 .about__heading{
   font-size: var(--h3-font-size);
