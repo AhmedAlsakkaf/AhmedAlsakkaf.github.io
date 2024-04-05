@@ -261,6 +261,19 @@
     display: block;
     width: 250px;
     justify-self: center;
+    /*Animation*/
+    overflow: hidden;
+    animation: imgFloat 5s ease-in-out infinite;
+  }
+
+  @keyframes imgFloat{
+    50%{
+      transform: translateY(40px);
+    }
+  }
+
+  .about__img{
+    animation: none;
   }
 
 
