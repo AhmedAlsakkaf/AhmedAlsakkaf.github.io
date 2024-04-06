@@ -97,6 +97,34 @@ function portfolioItemDetails(portfolioitem){
 /*=============== SERVICES MODAL ===============*/
 
 
+
+const modalViews = document.querySelectorAll('.services__modal'),
+  modelBtns= document.querySelectorAll('.services__button'),
+  modalClose = document.querySelectorAll('.services__modal-close')
+
+
+let modal = function(modalClick){
+  modalViews[modalClick].classList.add('active-modal')
+}
+
+modelBtns.forEach((modelBtn, i)=>{
+  modelBtn.addEventListener('click', () => {
+
+    modal(i)
+    
+  })
+})
+
+
+modalClose.forEach((modalClose)=>{
+  modalClose.addEventListener("click", () => {
+    modalViews.forEach((modalView)=> {
+      modalView.classList.remove('active-modal')
+    })
+  })
+})
+
+
 /*=============== SWIPER TESTIMONIAL ===============*/
 
 
