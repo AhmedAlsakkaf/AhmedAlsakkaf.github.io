@@ -6,6 +6,7 @@
   height: 100vh;
   background-color: var(--body-color);
   border-right: 1px solid var(--box-color);
+  transition: .5s;
 }
 
 
@@ -98,6 +99,7 @@
   display: none;
   justify-content: center;
   align-items: center;
+  z-index: var(--z-fixed);
 }
 
 .nav__close{
