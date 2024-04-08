@@ -79,13 +79,16 @@
 
 .home__subtitle{
   font-size: var(--h3-font-size);
-  font-weight: var(--font-medium);
+  font-weight: bold;
   margin-bottom: var(--mb-0-75);
+  color: var(--skin-color);
+
 }
 
 .home__description{
   max-width: 500px;
   margin-bottom: var(--mb-2);
+  font-size: var(--small-font-size);
 }
 
 

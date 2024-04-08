@@ -151,6 +151,10 @@
   .details__title{
     margin-bottom: var(--mb-0-75);
   }
+  .footer__social{
+    justify-items: flex-end;
+    float: right;
+  }
 
 }
 
