@@ -1,6 +1,6 @@
 
 .contact__container{
-  grid-template-columns: 300px 340px;
+  /* grid-template-columns: 300px 340px; */ /*Fuck this and find a fucking solution Damn it*/
   column-gap: 3rem;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@
 
 
 .contact__card-title,
-.contact__card-date{
+.contact__card-dat{
   font-size: var(--smaller-font-size);
 }
 
@@ -35,7 +35,7 @@
   font-weight: var(--font-medium);
 }
 
-.contact__card-date{
+.contact__card-data{
   display: block;
   margin-bottom: var(--mb-0-75);
 }
