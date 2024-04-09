@@ -340,6 +340,14 @@
     grid-template-columns: 300px;
   }
 
+  .contact__container{
+    display: block;
+  }
+
+  .contact__content{
+    margin-bottom: 20px;
+  }
+
   .footer__container{
     grid-template-columns: 1fr;
   }

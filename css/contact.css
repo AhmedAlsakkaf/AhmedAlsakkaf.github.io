@@ -1,6 +1,6 @@
 
 .contact__container{
-  /* grid-template-columns: 300px 340px; */ /*Fuck this and find a fucking solution Damn it*/
+  grid-template-columns: repeat(2, 300px);
   column-gap: 3rem;
   justify-content: center;
   align-items: center;
