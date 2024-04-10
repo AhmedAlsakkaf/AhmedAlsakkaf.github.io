@@ -152,9 +152,13 @@
     margin-bottom: var(--mb-0-75);
   }
   .footer__social{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     justify-items: flex-end;
     float: right;
   }
+
+
 
 }
 
