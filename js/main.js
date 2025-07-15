@@ -215,4 +215,32 @@ function initPortfolio() {
   }
 
   /*=============== SHOW SCROLL UP ===============*/
+
+  initShare();
+  // Show the linked is copied.
+}
+
+function initShare() {
+  const shareBtn = document.getElementById("share-btn");
+  const toast = document.getElementById("copy-toast");
+
+  const linkToCopy = "https://ahmedalsakkaf.github.io"; // Update if needed
+
+  if (shareBtn && toast) {
+    shareBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(linkToCopy).then(() => {
+        // Show toast
+        toast.classList.add("show");
+
+        // Animate icon
+        shareBtn.classList.add("share-animate");
+
+        // Remove animation after it ends
+        setTimeout(() => {
+          toast.classList.remove("show");
+          shareBtn.classList.remove("share-animate");
+        }, 600); // Slightly longer than animation duration
+      });
+    });
+  }
 }
