@@ -124,6 +124,12 @@
 }
 
 /* For the link */
+/* Add this to your CSS */
+.uil-share-alt {
+  cursor: pointer; /* Changes the cursor to hand/pointer on hover */
+  transition: transform 0.2s ease;
+}
+
 
 .copy-toast {
   position: fixed;
@@ -158,7 +164,7 @@
   }
   50% {
     transform: scale(1.4);
-    color: var(--skin-color)
+    color: var(--skin-color);
   }
   100% {
     transform: scale(1);
