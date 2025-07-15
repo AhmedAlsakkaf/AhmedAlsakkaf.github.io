@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 :root {
   /*===== Colors =====*/
-  --hue-color:242;
+  --hue-color: 242;
 
   /* HSL Color Mode */
-  /* --skin-color: hsl(24, 100%, 17%); */ 
+  /* --skin-color: hsl(24, 100%, 17%); */
   --skin-color: hsl(226, 74%, 33%);
   --title-color: hsl(var(--hue-color), 8%, 95%);
   --text-color: hsl(var(--hue-color), 8%, 85%);
@@ -15,7 +15,7 @@
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 26%);
 
   /*===== Font and Typography =====*/
-  --body-font: 'Poppins', sans-serif;
+  --body-font: "Poppins", sans-serif;
 
   /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
   --biggest-font-size: 3rem;
@@ -23,18 +23,18 @@
   --h2-font-size: 1.5rem;
   --h3-font-size: 1.25rem;
   --normal-font-size: 1rem;
-  --small-font-size: .875rem;
-  --smaller-font-size: .813rem;
-  --smallest-font-size: .75rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.813rem;
+  --smallest-font-size: 0.75rem;
 
   /*===== Font Weight =====*/
   --font-medium: 500;
   --font-bold: 600;
 
   /*===== Margenes Bottom =====*/
-  --mb-0-25: .25rem;
-  --mb-0-5: .5rem;
-  --mb-0-75: .75rem;
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
   --mb-1: 1rem;
   --mb-1-5: 1.5rem;
   --mb-2: 2rem;
@@ -46,105 +46,98 @@
   --z-modal: 100;
 }
 
-
 /* Responsive Typography */
 @media screen and (max-width: 1024px) {
   :root {
-      --biggest-font-size: 2rem;
-      --h1-font-size: 1.5rem;
-      --h2-font-size: 1.25rem;
-      --h3-font-size: 1.125rem;
-      --normal-font-size: .938rem;
-      --small-font-size: .813rem;
-      --smaller-font-size: .75rem;
+    --biggest-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
   }
 }
-
-
-
 
 /* BASE */
 
 * {
-
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   /* background-color: rgb(39, 39, 39); */
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
-
-body, button, input{
+body,
+button,
+input {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
 }
 
-body{
+body {
   background-color: var(--body-color);
-  color: var(--text-color)
+  color: var(--text-color);
 }
 
-
-h1, h2, h3{
+h1,
+h2,
+h3 {
   color: var(--tittle-color);
   font-weight: var(--font-bold);
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-
-img{
+img {
   max-width: 100%;
   height: auto;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
-
-button, input{
+button,
+input {
   border: none;
   outline: none;
 }
 
-
 /*Layout*/
-.container{
+.container {
   max-width: 1250px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.grid{
+.grid {
   display: grid;
 }
 
-
-
 /*Reusable CSS classes*/
 
-.section{
+.section {
   padding: 6.5rem 0 2rem;
 }
 
-.section__title{
+.section__title {
   text-align: center;
   font-size: var(--h1-font-size);
   margin-bottom: var(--mb-3);
 }
 
-.section__title::before{
+.section__title::before {
   content: attr(data-heading);
   display: block;
   font-size: var(--normal-font-size);
@@ -152,3 +145,23 @@ button, input{
   color: var(--skin-color);
 }
 
+/* for contact */
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}

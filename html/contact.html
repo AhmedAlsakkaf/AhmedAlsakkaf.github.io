@@ -1,71 +1,140 @@
-<section class="contact section" id="contact">
-  <h2 data-heading="Get in touch" class="section__title">Contact Me</h2>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="contact section" id="contact">
+      <h2 data-heading="Get in touch" class="section__title">Contact Me</h2>
 
-  <div class="contact__container container grid">
-    <div class="contact__content">
-      <div class="contact__info">
-        <div class="contact__card">
-          <i class="uil uil-envelope-edit contact__card-icon"></i>
-          <h3 class="contact__card-title">Email</h3>
-          <span class="contact__card-data">ahmedabdulkareem1000@gmail.com</span>
-          <span class="contact__button">
-            Write me
-            <i class="uil uil-arrow-right contact__button-icon"></i>
-          </span>
+      <div class="contact__container container grid">
+        <div class="contact__content">
+          <div class="contact__info">
+            <div class="contact__card">
+              <i class="uil uil-envelope-edit contact__card-icon"></i>
+              <h3 class="contact__card-title">Email</h3>
+              <span class="contact__card-data"
+                >ahmedabdulkareem1000@gmail.com</span
+              >
+              <span class="contact__button">
+                Write me
+                <i class="uil uil-arrow-right contact__button-icon"></i>
+              </span>
+            </div>
+
+            <div class="contact__card">
+              <i class="uil uil-instagram contact__card-icon"></i>
+              <h3 class="contact__card-title">Instagram</h3>
+              <span class="contact__card-data">alsaqqaf_13</span>
+              <span class="contact__button">
+                Write me
+                <i class="uil uil-arrow-right contact__button-icon"></i>
+              </span>
+            </div>
+
+            <div class="contact__card">
+              <i class="uil uil-whatsapp contact__card-icon"></i>
+              <h3 class="contact__card-title">WhatsApp</h3>
+              <span class="contact__card-data">+92 344 0580996</span>
+              <span class="contact__button">
+                Write me
+                <i class="uil uil-arrow-right contact__button-icon"></i>
+              </span>
+            </div>
+          </div>
         </div>
 
-        <div class="contact__card">
-          <i class="uil uil-instagram contact__card-icon"></i>
-          <h3 class="contact__card-title">Instagram</h3>
-          <span class="contact__card-data">alsaqqaf_13</span>
-          <span class="contact__button">
-            Write me
-            <i class="uil uil-arrow-right contact__button-icon"></i>
-          </span>
-        </div>
+        <div class="contact__content">
+          <form
+            action="https://formspree.io/f/meozqgyk"
+            method="POST"
+            class="contact__form"
+          >
+            <div class="input__container">
+              <input type="text" name="username" class="input" required />
+              <label for="">Username</label>
+              <span>Username</span>
+            </div>
 
-        <div class="contact__card">
-          <i class="uil uil-whatsapp contact__card-icon"></i>
-          <h3 class="contact__card-title">WhatsApp</h3>
-          <span class="contact__card-data">+92 344 0580996</span>
-          <span class="contact__button">
-            Write me
-            <i class="uil uil-arrow-right contact__button-icon"></i>
-          </span>
+            <div class="input__container">
+              <input type="email" name="email" class="input" required />
+              <label for="">Email</label>
+              <span>Email</span>
+            </div>
+
+            <div class="input__container">
+              <input type="tel" name="phone" class="input" />
+              <label for="">Phone</label>
+              <span>Phone</span>
+            </div>
+
+            <div class="input__container textarea">
+              <textarea name="message" class="input" required></textarea>
+              <label for="">Message</label>
+              <span>Message</span>
+            </div>
+
+            <button type="submit" class="button">
+              <i class="uil uil-navigator button__icon"></i>Send a Message
+            </button>
+          </form>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="contact__content">
-      <form action="" class="contact__form">
-        <div class="input__container">
-          <input type="text" class="input" />
-          <label for="">Username</label>
-          <span>Username</span>
-        </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector(".contact__form");
 
-        <div class="input__container">
-          <input type="email" class="input" />
-          <label for="">Email</label>
-          <span>Email</span>
-        </div>
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
 
-        <div class="input__container">
-          <input type="tel" class="input" />
-          <label for="">Phone</label>
-          <span>Phone</span>
-        </div>
+          const formData = new FormData(form);
 
-        <div class="input__container textarea">
-          <textarea name="" id="" class="input"></textarea>
-          <label for="">Message</label>
-          <span>Message</span>
-        </div>
+          try {
+            const response = await fetch(form.action, {
+              method: "POST",
+              body: formData,
+              headers: {
+                Accept: "application/json",
+              },
+            });
 
-        <button type="submit" class="button">
-          <i class="uil uil-navigator button__icon"></i>Send a Message
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
+            if (response.ok) {
+              showToast("✅ Message sent successfully!");
+              form.reset();
+            } else {
+              showToast("❌ Failed to send message. Try again later.");
+            }
+          } catch (error) {
+            showToast("⚠️ Network error.");
+          }
+        });
+
+        function showToast(message) {
+          // Create toast div
+          const toast = document.createElement("div");
+          toast.textContent = message;
+          toast.style.cssText = `
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #1abc9c;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 9999;
+      animation: fade-in-out 3s ease forwards;
+    `;
+          document.body.appendChild(toast);
+
+          setTimeout(() => toast.remove(), 3000);
+        }
+      });
+    </script>
+  </body>
+</html>
