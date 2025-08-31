@@ -1,6 +1,31 @@
 /*WorkSectoin*/
 
+.work__card {
+  background-color: var(--box-color);
+  padding: 0;
+  border-radius: 1rem;
+  /* Fixed dimensions for consistent card sizes */
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hidden work cards */
+.work__card--hidden {
+  display: none !important;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.work__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
 .work__container {
+  display: grid;
   grid-template-columns: repeat(4, 300px);
   gap: 1.8rem;
   justify-content: center;
@@ -59,7 +84,23 @@
 }
 
 /* Responsive design for work cards */
+@media screen and (max-width: 1024px) {
+  .work__container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .work__container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
   .work__card {
     height: 320px; /* Slightly smaller on mobile */
   }
@@ -76,11 +117,29 @@
     font-size: 0.9rem;
     min-height: 2.5rem;
   }
+
+  .work__filters {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .work__item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  .work__container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
   .work__card {
     height: 300px;
+    max-width: 100%;
   }
 
   .work__img {
@@ -89,6 +148,66 @@
 
   .work__content {
     padding: 0.75rem;
+  }
+
+  .work__title {
+    font-size: 0.85rem;
+    min-height: 2rem;
+  }
+
+  .work__filters {
+    column-gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .work__item {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .work__load-more {
+    margin-top: 2rem;
+  }
+
+  .work__load-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .work__container {
+    padding: 0.25rem;
+    gap: 0.75rem;
+  }
+
+  .work__card {
+    height: 280px;
+  }
+
+  .work__img {
+    height: 140px;
+  }
+
+  .work__content {
+    padding: 0.5rem;
+  }
+
+  .work__title {
+    font-size: 0.8rem;
+    min-height: 1.8rem;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  .work__item {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .work__load-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -138,6 +257,62 @@
 .active-work {
   background-color: var(--skin-color);
   color: var(--title-color);
+}
+
+/* Load More Button Styles */
+.work__load-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.work__load-btn {
+  background: linear-gradient(135deg, var(--skin-color), var(--first-color));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.work__load-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.work__load-btn:active {
+  transform: translateY(0);
+}
+
+.load-btn-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.work__load-btn:hover .load-btn-icon {
+  transform: translateY(2px);
+}
+
+/* Hide load more button when all cards are shown */
+.work__load-more.hidden {
+  display: none;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /*Portfolio popup*/

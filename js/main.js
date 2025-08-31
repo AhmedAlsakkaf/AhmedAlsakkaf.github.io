@@ -114,6 +114,59 @@ function initPortfolio() {
 
   linkWork.forEach((L) => L.addEventListener("click", activeWork));
 
+  /*===== Load More Work Cards =====*/
+
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const hiddenCards = document.querySelectorAll(".work__card--hidden");
+  const loadMoreSection = document.querySelector(".work__load-more");
+
+  if (loadMoreBtn && hiddenCards.length > 0) {
+    loadMoreBtn.addEventListener("click", function () {
+      // Update button text during loading
+      const btnText = loadMoreBtn.querySelector(".load-btn-text");
+      const btnIcon = loadMoreBtn.querySelector(".load-btn-icon");
+
+      btnText.textContent = "Loading...";
+      btnIcon.classList.remove("uil-arrow-down");
+      btnIcon.classList.add("uil-spinner-alt");
+      btnIcon.style.animation = "spin 1s linear infinite";
+
+      // Show all hidden cards with animation
+      hiddenCards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.remove("work__card--hidden");
+          card.style.opacity = "0";
+          card.style.transform = "translateY(20px)";
+
+          // Animate the card in
+          setTimeout(() => {
+            card.style.transition = "all 0.5s ease";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, 50);
+        }, index * 100);
+      });
+
+      // Update MixItUp to include new cards and hide load more button
+      setTimeout(() => {
+        if (mixerPortfolio) {
+          mixerPortfolio.destroy();
+          mixerPortfolio = mixitup(".work__container", {
+            selectors: {
+              target: ".work__card",
+            },
+            animation: {
+              duration: 300,
+            },
+          });
+        }
+
+        // Hide the load more button
+        loadMoreSection.classList.add("hidden");
+      }, hiddenCards.length * 100 + 500);
+    });
+  }
+
   /*===== Work Popup =====*/
 
   document.addEventListener("click", (e) => {
