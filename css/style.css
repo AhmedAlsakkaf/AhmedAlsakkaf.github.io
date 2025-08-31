@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* Hidden work cards */
@@ -17,11 +17,6 @@
   display: none !important;
   opacity: 0;
   transform: translateY(20px);
-}
-
-.work__card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .work__container {
@@ -58,11 +53,6 @@
   flex-direction: column;
   overflow: hidden;
   transition: all 0.3s ease;
-}
-
-.work__card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Fixed image container */
