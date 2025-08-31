@@ -92,34 +92,194 @@ function initPortfolio() {
     });
   });
 
-  /*=============== MIXITUP FILTER PORTFOLIO ===============*/
+  /*=============== MIXITUP FILTER PORTFOLIO - DISABLED ===============*/
+  // MixItUp disabled to prevent conflicts with load more functionality
+  // Using custom filtering system instead
 
-  let mixerPortfolio = mixitup(".work__container", {
-    selectors: {
-      target: ".work__card",
-    },
-    animation: {
-      duration: 300,
-    },
-  });
+  /*===== Link Active Work - DISABLED =====*/
+  // Original filter system disabled, using custom implementation below
 
-  /*===== Link Active Work =====*/
+  // const linkWork = document.querySelectorAll(".work__item");
 
-  const linkWork = document.querySelectorAll(".work__item");
+  // function activeWork() {
+  //   linkWork.forEach((L) => L.classList.remove("active-work"));
+  //   this.classList.add("active-work");
+  // }
 
-  function activeWork() {
-    linkWork.forEach((L) => L.classList.remove("active-work"));
-    this.classList.add("active-work");
+  // linkWork.forEach((L) => L.addEventListener("click", activeWork));
+
+  /*===== Load More Work Cards =====*/
+
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const allCards = document.querySelectorAll(".work__card");
+  const loadMoreSection = document.querySelector(".work__load-more");
+  const INITIAL_CARDS = 8; // Show first 8 cards initially
+
+  let currentFilter = "all";
+  let allCardsVisible = false; // Track if all cards are currently visible
+
+  // Initialize: Show first 8 cards
+  function initializeCards() {
+    allCards.forEach((card, index) => {
+      card.style.transition = "all 0.4s ease";
+
+      if (index < INITIAL_CARDS) {
+        card.style.display = "block";
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
+        card.classList.remove("work__card--hidden");
+      } else {
+        card.style.display = "none";
+        card.style.opacity = "0";
+        card.style.transform = "translateY(20px)";
+        card.classList.add("work__card--hidden");
+      }
+    });
+
+    allCardsVisible = false;
+    updateLoadMoreButton();
   }
 
-  linkWork.forEach((L) => L.addEventListener("click", activeWork));
+  // Show more cards for current filter
+  function showMoreCards() {
+    const btnText = loadMoreBtn.querySelector(".load-btn-text");
+    const btnIcon = loadMoreBtn.querySelector(".load-btn-icon");
+
+    // Update button text during loading
+    btnText.textContent = "Loading...";
+    btnIcon.classList.remove("uil-arrow-down");
+    btnIcon.classList.add("uil-spinner-alt");
+    btnIcon.style.animation = "spin 1s linear infinite";
+
+    // Get all cards that match current filter but are hidden
+    const hiddenMatchingCards = Array.from(allCards).filter((card) => {
+      const matchesFilter =
+        currentFilter === "all" ||
+        card.className.includes(currentFilter.replace(".", ""));
+      const isHidden = card.classList.contains("work__card--hidden");
+      return matchesFilter && isHidden;
+    });
+
+    // Show hidden matching cards with staggered animation
+    hiddenMatchingCards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.remove("work__card--hidden");
+        card.style.display = "block";
+
+        // Animate in
+        setTimeout(() => {
+          card.style.opacity = "1";
+          card.style.transform = "translateY(0)";
+        }, 50);
+      }, index * 100);
+    });
+
+    // Mark that all cards are now visible and hide load more button
+    setTimeout(() => {
+      allCardsVisible = true;
+      loadMoreSection.classList.add("hidden");
+    }, hiddenMatchingCards.length * 100 + 300);
+  }
+
+  // Update load more button visibility
+  function updateLoadMoreButton() {
+    const hasHiddenMatchingCards = Array.from(allCards).some((card) => {
+      const matchesFilter =
+        currentFilter === "all" ||
+        card.className.includes(currentFilter.replace(".", ""));
+      const isHidden = card.classList.contains("work__card--hidden");
+      return matchesFilter && isHidden;
+    });
+
+    if (hasHiddenMatchingCards && !allCardsVisible) {
+      loadMoreSection.classList.remove("hidden");
+
+      // Reset button text
+      const btnText = loadMoreBtn.querySelector(".load-btn-text");
+      const btnIcon = loadMoreBtn.querySelector(".load-btn-icon");
+      btnText.textContent = "Load More Projects";
+      btnIcon.classList.remove("uil-spinner-alt");
+      btnIcon.classList.add("uil-arrow-down");
+      btnIcon.style.animation = "";
+    } else {
+      loadMoreSection.classList.add("hidden");
+    }
+  }
+
+  // Enhanced filter function
+  function customFilter(filterValue) {
+    currentFilter = filterValue;
+
+    // Reset the "all cards visible" state when changing filters
+    allCardsVisible = false;
+
+    allCards.forEach((card, index) => {
+      const matchesFilter =
+        filterValue === "all" ||
+        card.className.includes(filterValue.replace(".", ""));
+
+      if (matchesFilter) {
+        // Show cards that match filter
+        if (index < INITIAL_CARDS) {
+          // Always show first 8 matching cards
+          card.style.display = "block";
+          card.style.opacity = "1";
+          card.style.transform = "translateY(0)";
+          card.classList.remove("work__card--hidden");
+        } else {
+          // Hide cards beyond initial count until load more is clicked
+          card.style.display = "none";
+          card.style.opacity = "0";
+          card.style.transform = "translateY(20px)";
+          card.classList.add("work__card--hidden");
+        }
+      } else {
+        // Hide cards that don't match filter
+        card.style.display = "none";
+        card.style.opacity = "0";
+        card.style.transform = "translateY(20px)";
+      }
+    });
+
+    // Update load more button based on new filter
+    setTimeout(() => {
+      updateLoadMoreButton();
+    }, 100);
+  }
+
+  // Initialize the cards on page load
+  initializeCards();
+
+  // Add event listener for load more button
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", showMoreCards);
+  }
+
+  // Override the filter click handlers
+  const workItems = document.querySelectorAll(".work__item");
+  workItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      // Remove active class from all items
+      workItems.forEach((i) => i.classList.remove("active-work"));
+      // Add active class to clicked item
+      this.classList.add("active-work");
+
+      // Get filter value
+      const filterValue = this.getAttribute("data-filter");
+
+      // Apply custom filter
+      customFilter(filterValue);
+    });
+  });
 
   /*===== Work Popup =====*/
 
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("work__button")) {
       togglePortfolioPopup();
-      portfolioItemDetails(e.target.parentElement);
+      // Find the closest work card container
+      const workCard = e.target.closest(".work__card");
+      portfolioItemDetails(workCard);
     }
   });
 
@@ -243,4 +403,43 @@ function initShare() {
       });
     });
   }
+
+  /*=============== Skills Load More ===============*/
+  function initSkillsLoadMore() {
+    const loadMoreBtn = document.getElementById("skillsLoadMore");
+    const hiddenSkills = document.querySelectorAll(".skill__hidden");
+
+    if (loadMoreBtn && hiddenSkills.length > 0) {
+      loadMoreBtn.addEventListener("click", () => {
+        // Show all hidden skills with animation
+        hiddenSkills.forEach((skill, index) => {
+          setTimeout(() => {
+            skill.style.display = "flex";
+            skill.classList.remove("skill__hidden");
+            // Add fade-in animation
+            skill.style.opacity = "0";
+            skill.style.transform = "translateY(20px)";
+
+            setTimeout(() => {
+              skill.style.transition = "all 0.3s ease";
+              skill.style.opacity = "1";
+              skill.style.transform = "translateY(0)";
+            }, 50);
+          }, index * 100); // Stagger the animations
+        });
+
+        // Hide the load more button
+        setTimeout(() => {
+          loadMoreBtn.style.transform = "scale(0)";
+          loadMoreBtn.style.opacity = "0";
+          setTimeout(() => {
+            loadMoreBtn.style.display = "none";
+          }, 300);
+        }, hiddenSkills.length * 100 + 200);
+      });
+    }
+  }
+
+  // Initialize all functions
+  initSkillsLoadMore();
 }
