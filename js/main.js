@@ -403,4 +403,43 @@ function initShare() {
       });
     });
   }
+
+  /*=============== Skills Load More ===============*/
+  function initSkillsLoadMore() {
+    const loadMoreBtn = document.getElementById("skillsLoadMore");
+    const hiddenSkills = document.querySelectorAll(".skill__hidden");
+
+    if (loadMoreBtn && hiddenSkills.length > 0) {
+      loadMoreBtn.addEventListener("click", () => {
+        // Show all hidden skills with animation
+        hiddenSkills.forEach((skill, index) => {
+          setTimeout(() => {
+            skill.style.display = "flex";
+            skill.classList.remove("skill__hidden");
+            // Add fade-in animation
+            skill.style.opacity = "0";
+            skill.style.transform = "translateY(20px)";
+
+            setTimeout(() => {
+              skill.style.transition = "all 0.3s ease";
+              skill.style.opacity = "1";
+              skill.style.transform = "translateY(0)";
+            }, 50);
+          }, index * 100); // Stagger the animations
+        });
+
+        // Hide the load more button
+        setTimeout(() => {
+          loadMoreBtn.style.transform = "scale(0)";
+          loadMoreBtn.style.opacity = "0";
+          setTimeout(() => {
+            loadMoreBtn.style.display = "none";
+          }, 300);
+        }, hiddenSkills.length * 100 + 200);
+      });
+    }
+  }
+
+  // Initialize all functions
+  initSkillsLoadMore();
 }
