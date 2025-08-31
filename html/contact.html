@@ -9,87 +9,135 @@
     <section class="contact section" id="contact">
       <h2 data-heading="Get in touch" class="section__title">Contact Me</h2>
 
-      <div class="contact__container container grid">
-        <div class="contact__content">
-          <div class="contact__info">
-            <div class="contact__card">
-              <i class="uil uil-envelope-edit contact__card-icon"></i>
-              <h3 class="contact__card-title">Email</h3>
-              <span class="contact__card-data"
-                >ahmedabdulkareem1000@gmail.com</span
-              >
-              <span class="contact__button">
-                Write me
-                <i class="uil uil-arrow-right contact__button-icon"></i>
-              </span>
-            </div>
+      <div class="contact__container container">
+        <!-- Contact Intro -->
+        <div class="contact__intro">
+          <h3 class="contact__heading">Let's Work Together</h3>
+          <p class="contact__description">
+            Have a project in mind? I'd love to hear about it. Drop me a message and let's create something amazing together.
+          </p>
+        </div>
 
-            <div class="contact__card">
-              <i class="uil uil-instagram contact__card-icon"></i>
-              <h3 class="contact__card-title">Instagram</h3>
-              <span class="contact__card-data">alsaqqaf_13</span>
-              <span class="contact__button">
-                Write me
-                <i class="uil uil-arrow-right contact__button-icon"></i>
-              </span>
-            </div>
+        <!-- Modern Contact Form -->
+        <div class="contact__form-wrapper">
+            <form
+              action="https://formspree.io/f/meozqgyk"
+              method="POST"
+              class="contact__form"
+              id="contactForm"
+            >
+              <div class="form__group">
+                <div class="input__group">
+                  <input
+                    type="text"
+                    name="username"
+                    class="form__input"
+                    id="username"
+                    required
+                  />
+                  <label for="username" class="form__label">Your Name</label>
+                  <div class="form__line"></div>
+                </div>
 
-            <div class="contact__card">
-              <i class="uil uil-whatsapp contact__card-icon"></i>
-              <h3 class="contact__card-title">WhatsApp</h3>
-              <span class="contact__card-data">+92 344 0580996</span>
-              <span class="contact__button">
-                Write me
-                <i class="uil uil-arrow-right contact__button-icon"></i>
-              </span>
+                <div class="input__group">
+                  <input
+                    type="email"
+                    name="email"
+                    class="form__input"
+                    id="email"
+                    required
+                  />
+                  <label for="email" class="form__label">Email Address</label>
+                  <div class="form__line"></div>
+                </div>
+              </div>
+
+              <div class="input__group">
+                <input
+                  type="text"
+                  name="subject"
+                  class="form__input"
+                  id="subject"
+                  required
+                />
+                <label for="subject" class="form__label">Project Subject</label>
+                <div class="form__line"></div>
+              </div>
+
+              <div class="input__group">
+                <textarea
+                  name="message"
+                  class="form__input form__textarea"
+                  id="message"
+                  required
+                ></textarea>
+                <label for="message" class="form__label"
+                  >Tell me about your project</label
+                >
+                <div class="form__line"></div>
+              </div>
+
+              <button type="submit" class="form__button" id="submitBtn">
+                <span class="button__text">Send Message</span>
+                <i class="uil uil-message button__icon"></i>
+                <div class="button__loader">
+                  <div class="loader__spinner"></div>
+                </div>
+              </button>
+            </form>
+
+            <!-- Success Message -->
+            <div class="success__message" id="successMessage">
+              <i class="uil uil-check-circle success__icon"></i>
+              <h3 class="success__title">Message Sent!</h3>
+              <p class="success__text">
+                Thank you for reaching out. I'll get back to you within 24
+                hours.
+              </p>
+              <button class="success__button" id="sendAnother">
+                Send Another Message
+              </button>
             </div>
           </div>
         </div>
-
-        <div class="contact__content">
-          <form
-            action="https://formspree.io/f/meozqgyk"
-            method="POST"
-            class="contact__form"
-          >
-            <div class="input__container">
-              <input type="text" name="username" class="input" required />
-              <label for="">Username</label>
-              <span>Username</span>
-            </div>
-
-            <div class="input__container">
-              <input type="email" name="email" class="input" required />
-              <label for="">Email</label>
-              <span>Email</span>
-            </div>
-
-            <div class="input__container">
-              <input type="tel" name="phone" class="input" />
-              <label for="">Phone</label>
-              <span>Phone</span>
-            </div>
-
-            <div class="input__container textarea">
-              <textarea name="message" class="input" required></textarea>
-              <label for="">Message</label>
-              <span>Message</span>
-            </div>
-
-            <button type="submit" class="button">
-              <i class="uil uil-navigator button__icon"></i>Send a Message
-            </button>
-          </form>
-        </div>
       </div>
     </section>
-
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const form = document.querySelector(".contact__form");
+        const form = document.getElementById("contactForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const successMessage = document.getElementById("successMessage");
+        const sendAnotherBtn = document.getElementById("sendAnother");
+        const formWrapper = document.querySelector(".contact__form-wrapper");
 
+        // Form inputs for animation
+        const inputs = document.querySelectorAll(".form__input");
+
+        // Input focus animations
+        inputs.forEach((input) => {
+          input.addEventListener("focus", () => {
+            input.parentElement.classList.add("focused");
+          });
+
+          input.addEventListener("blur", () => {
+            if (input.value === "") {
+              input.parentElement.classList.remove("focused");
+            }
+          });
+
+          // Check if input has value on load
+          if (input.value !== "") {
+            input.parentElement.classList.add("focused");
+          }
+        });
+
+        // Form submission
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
+
+          // Show loading state
+          submitBtn.classList.add("loading");
+          submitBtn.disabled = true;
 
           const formData = new FormData(form);
 
@@ -103,36 +151,78 @@
             });
 
             if (response.ok) {
-              showToast("✅ Message sent successfully!");
-              form.reset();
+              // Show success message
+              setTimeout(() => {
+                formWrapper.classList.add("form-sent");
+                submitBtn.classList.remove("loading");
+                submitBtn.disabled = false;
+              }, 1000);
             } else {
-              showToast("❌ Failed to send message. Try again later.");
+              throw new Error("Form submission failed");
             }
           } catch (error) {
-            showToast("⚠️ Network error.");
+            // Show error state
+            submitBtn.classList.remove("loading");
+            submitBtn.classList.add("error");
+            submitBtn.disabled = false;
+
+            setTimeout(() => {
+              submitBtn.classList.remove("error");
+            }, 3000);
+
+            showToast("❌ Failed to send message. Please try again.", "error");
           }
         });
 
-        function showToast(message) {
-          // Create toast div
+        // Send another message
+        sendAnotherBtn.addEventListener("click", () => {
+          formWrapper.classList.remove("form-sent");
+          form.reset();
+
+          // Remove focused class from all inputs
+          inputs.forEach((input) => {
+            input.parentElement.classList.remove("focused");
+          });
+        });
+
+        function showToast(message, type = "success") {
           const toast = document.createElement("div");
-          toast.textContent = message;
+          toast.className = `toast toast--${type}`;
+          toast.innerHTML = `
+      <i class="uil uil-${
+        type === "success" ? "check" : "exclamation-triangle"
+      }"></i>
+      <span>${message}</span>
+    `;
+
           toast.style.cssText = `
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #1abc9c;
+      bottom: 2rem;
+      right: 2rem;
+      background: ${type === "success" ? "var(--first-color)" : "#e74c3c"};
       color: white;
-      padding: 12px 18px;
-      border-radius: 8px;
-      font-size: 14px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 1rem 1.5rem;
+      border-radius: 0.75rem;
+      font-size: var(--small-font-size);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
       z-index: 9999;
-      animation: fade-in-out 3s ease forwards;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
     `;
+
           document.body.appendChild(toast);
 
-          setTimeout(() => toast.remove(), 3000);
+          setTimeout(() => {
+            toast.style.transform = "translateX(0)";
+          }, 100);
+
+          setTimeout(() => {
+            toast.style.transform = "translateX(100%)";
+            setTimeout(() => toast.remove(), 300);
+          }, 3000);
         }
       });
     </script>
