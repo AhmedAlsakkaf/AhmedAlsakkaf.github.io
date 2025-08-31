@@ -119,7 +119,9 @@ function initPortfolio() {
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("work__button")) {
       togglePortfolioPopup();
-      portfolioItemDetails(e.target.parentElement);
+      // Find the closest work card container
+      const workCard = e.target.closest(".work__card");
+      portfolioItemDetails(workCard);
     }
   });
 
