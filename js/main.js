@@ -291,6 +291,15 @@ function initPortfolio() {
     .querySelector(".portfolio__popup-close")
     .addEventListener("click", togglePortfolioPopup);
 
+  // Close popup when clicking outside
+  document
+    .querySelector(".portfolio__popup")
+    .addEventListener("click", function (e) {
+      if (e.target === this) {
+        togglePortfolioPopup();
+      }
+    });
+
   function portfolioItemDetails(portfolioitem) {
     document.querySelector(".pp__thumbnail img").src =
       portfolioitem.querySelector(".work__img").src;

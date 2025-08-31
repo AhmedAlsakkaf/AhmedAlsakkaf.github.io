@@ -332,9 +332,10 @@
 .portfolio__popup-inner {
   background-color: var(--box-color);
   width: 900px;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding: 2.5rem;
   position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .portfolio__popup-content {
@@ -347,36 +348,49 @@
   position: absolute;
   top: -1rem;
   right: -0.2rem;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   color: var(--skin-color);
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.portfolio__popup-close:hover {
+  color: var(--first-color);
+  transform: scale(1.1);
 }
 
 .portfolio__popup-img {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .portfolio__popup-subtitle {
-  font-size: var(--small-font-size);
-  margin-bottom: var(--mb-0-25);
+  font-size: var(--normal-font-size);
+  margin-bottom: var(--mb-0-5);
+  color: var(--first-color);
+  font-weight: var(--font-medium);
 }
 
 .details__title {
-  font-size: var(--h3-font-size);
-  font-weight: var(--font-medium);
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
   margin-bottom: var(--mb-1);
+  color: var(--title-color);
 }
 
 .details__description {
-  font-size: var(--small-font-size);
+  font-size: var(--normal-font-size);
   margin-bottom: var(--mb-2);
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
 .details__info li {
   margin-bottom: var(--mb-0-75);
   text-transform: capitalize;
-  font-size: var(--small-font-size);
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
 }
 
 .details__info li:last-child {
@@ -384,12 +398,22 @@
 }
 
 .details__info li span {
-  font-weight: normal;
+  font-weight: var(--font-medium);
+  color: var(--title-color);
 }
 
 .details__info li a {
   text-transform: lowercase;
   color: var(--skin-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.details__info li a:hover {
+  color: var(--first-color);
+  border-bottom-color: var(--first-color-alt);
 }
 
 /*Active Item work*/
