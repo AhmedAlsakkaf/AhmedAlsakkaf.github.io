@@ -69,13 +69,6 @@
   transition: all 0.5s ease;
 }
 
-.form__group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
 .input__group {
   position: relative;
   margin-bottom: 1.5rem;
@@ -90,7 +83,6 @@
   font-size: var(--normal-font-size);
   color: var(--title-color);
   outline: none;
-  transition: all 0.3s ease;
   font-family: inherit;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
@@ -116,49 +108,23 @@
 .form__textarea {
   min-height: 120px;
   resize: vertical;
-  padding-top: 1.5rem;
+  padding-top: 0.5rem;
 }
 
 .form__label {
-  position: absolute;
-  top: 1rem;
-  left: 0;
-  font-size: var(--normal-font-size);
+  display: block;
+  font-size: var(--small-font-size);
   color: var(--text-color-light);
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-
-.form__line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(
-    135deg,
-    var(--first-color),
-    var(--first-color-alt)
-  );
-  transition: width 0.3s ease;
+  font-weight: var(--font-medium);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Input Focus States */
-.input__group.focused .form__label,
-.form__input:focus + .form__label {
-  top: 0;
-  font-size: var(--small-font-size);
-  color: var(--first-color);
-  font-weight: var(--font-medium);
-}
-
-.input__group.focused .form__line,
-.form__input:focus + .form__label + .form__line {
-  width: 100%;
-}
-
 .form__input:focus {
   border-bottom-color: rgba(255, 255, 255, 0.2);
+  outline: none;
 }
 
 /* Submit Button */

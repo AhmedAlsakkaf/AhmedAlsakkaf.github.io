@@ -26,54 +26,38 @@
               class="contact__form"
               id="contactForm"
             >
-              <div class="form__group">
-                <div class="input__group">
-                  <input
-                    type="text"
-                    name="username"
-                    class="form__input"
-                    id="username"
-                    required
-                  />
-                  <label for="username" class="form__label">Your Name</label>
-                  <div class="form__line"></div>
-                </div>
-
-                <div class="input__group">
-                  <input
-                    type="email"
-                    name="email"
-                    class="form__input"
-                    id="email"
-                    required
-                  />
-                  <label for="email" class="form__label">Email Address</label>
-                  <div class="form__line"></div>
-                </div>
-              </div>
-
               <div class="input__group">
+                <label for="username" class="form__label">Name</label>
                 <input
                   type="text"
-                  name="subject"
+                  name="username"
                   class="form__input"
-                  id="subject"
+                  id="username"
                   required
                 />
-                <label for="subject" class="form__label">Project Subject</label>
                 <div class="form__line"></div>
               </div>
 
               <div class="input__group">
+                <label for="email" class="form__label">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form__input"
+                  id="email"
+                  required
+                />
+                <div class="form__line"></div>
+              </div>
+
+              <div class="input__group">
+                <label for="message" class="form__label">Tell me about your project</label>
                 <textarea
                   name="message"
                   class="form__input form__textarea"
                   id="message"
                   required
                 ></textarea>
-                <label for="message" class="form__label"
-                  >Tell me about your project</label
-                >
                 <div class="form__line"></div>
               </div>
 
