@@ -362,14 +362,17 @@ function initPortfolio() {
       const sectionTop = current.offsetTop - 50,
         sectionId = current.getAttribute("id");
 
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        document
-          .querySelector(".nav__menu a[href*=" + sectionId + "]")
-          .classList.add("active-link");
-      } else {
-        document
-          .querySelector(".nav__menu a[href*=" + sectionId + "]")
-          .classList.remove("active-link");
+      const navLink = document.querySelector(
+        ".nav__menu a[href*=" + sectionId + "]"
+      );
+
+      if (navLink) {
+        // Check if nav link exists before accessing classList
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navLink.classList.add("active-link");
+        } else {
+          navLink.classList.remove("active-link");
+        }
       }
     });
   }
@@ -440,6 +443,29 @@ function initShare() {
     }
   }
 
+  /*=============== Qualification Tabs ===============*/
+  function initQualificationTabs() {
+    const tabs = document.querySelectorAll("[data-target]");
+    const tabContents = document.querySelectorAll("[data-content]");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = document.querySelector(tab.dataset.target);
+
+        // Remove active class from all tabs and contents
+        tabs.forEach((t) => t.classList.remove("qualification__active"));
+        tabContents.forEach((tc) =>
+          tc.classList.remove("qualification__active")
+        );
+
+        // Add active class to clicked tab and corresponding content
+        tab.classList.add("qualification__active");
+        target.classList.add("qualification__active");
+      });
+    });
+  }
+
   // Initialize all functions
   initSkillsLoadMore();
+  initQualificationTabs();
 }

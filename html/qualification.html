@@ -1,95 +1,227 @@
-<section class="qualification">
+<section class="qualification section" id="qualification">
   <h2 data-heading="My Journey" class="section__title">Qualification</h2>
 
-  <div class="qualification__container container grid">
-    <div class="education">
-      <h3 class="qualification__title">
-        <i class="uil uil-graduation-cap"></i>
+  <div class="qualification__container container">
+    <!-- Tab Navigation -->
+    <div class="qualification__tabs">
+      <div
+        class="qualification__button button--flex qualification__active"
+        data-target="#education"
+      >
+        <i class="uil uil-graduation-cap qualification__icon"></i>
         Education
-      </h3>
-
-      <div class="timeline">
-        <div class="timeline__item">
-          <div class="circle__dot"></div>
-          <h3 class="timeline__title">COMSATS University Islamabad (CUI)</h3>
-          <p class="timeline__text">Bachelor Degree in Sfotware Engineering</p>
-          <span class="timeline__data">
-            <i class="uil uil-calendar-alt"></i>
-            2022 - 2026</span
-          >
-        </div>
-
-        <div class="timeline__item">
-          <div class="circle__dot"></div>
-          <h3 class="timeline__title">
-            Yemen & American English Institute (YALI)
-          </h3>
-          <p class="timeline__text">
-            Diploma& TOEFL certificate in English Language
-          </p>
-          <span class="timeline__data">
-            <i class="uil uil-calendar-alt"></i>
-            2021 - 2022</span
-          >
-        </div>
-
-        <div class="timeline__item">
-          <div class="circle__dot"></div>
-          <h3 class="timeline__title">Science and Technology School (STS)</h3>
-          <p class="timeline__text">High School</p>
-          <span class="timeline__data">
-            <i class="uil uil-calendar-alt"></i>
-            2017 - 2020</span
-          >
-        </div>
+      </div>
+      <div class="qualification__button button--flex" data-target="#experience">
+        <i class="uil uil-briefcase-alt qualification__icon"></i>
+        Experience
       </div>
     </div>
 
-    <div class="experience">
-      <h3 class="qualification__title">
-        <i class="uil uil-suitcase"></i>
-        Experience
-      </h3>
+    <div class="qualification__sections">
+      <!-- Education Section -->
+      <div
+        class="qualification__content qualification__active"
+        data-content
+        id="education"
+      >
+        <div class="qualification__timeline">
+          <div class="qualification__item">
+            <div class="qualification__card">
+              <div class="qualification__header">
+                <div class="qualification__institution">
+                  <h3 class="qualification__title">
+                    COMSATS University Islamabad
+                  </h3>
+                  <span class="qualification__subtitle">CUI - Pakistan</span>
+                </div>
+                <div class="qualification__calendar">
+                  <i class="uil uil-calendar-alt"></i>
+                  <span class="qualification__year">2022 - 2026</span>
+                </div>
+              </div>
+              <div class="qualification__details">
+                <p class="qualification__description">
+                  Bachelor's Degree in Software Engineering
+                </p>
+                <div class="qualification__achievements">
+                  <span class="achievement__tag">Programming</span>
+                  <span class="achievement__tag">Software Design</span>
+                  <span class="achievement__tag">Database Systems</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div class="timeline">
-        <div class="timeline__item">
-          <div class="circle__dot"></div>
-          <h3 class="timeline__title">UI/UX Designer</h3>
-          <p class="timeline__text">Internship @ internnCraft</p>
-          <span class="timeline__data">
-            <i class="uil uil-calendar-alt"></i>
-            August - 2024</span
-          >
+          <div class="qualification__item">
+            <div class="qualification__card">
+              <div class="qualification__header">
+                <div class="qualification__institution">
+                  <h3 class="qualification__title">
+                    Yemen & American English Institute
+                  </h3>
+                  <span class="qualification__subtitle"
+                    >YALI - Language Center</span
+                  >
+                </div>
+                <div class="qualification__calendar">
+                  <i class="uil uil-calendar-alt"></i>
+                  <span class="qualification__year">2021 - 2022</span>
+                </div>
+              </div>
+              <div class="qualification__details">
+                <p class="qualification__description">
+                  Diploma & TOEFL Certificate in English Language
+                </p>
+                <div class="qualification__achievements">
+                  <span class="achievement__tag">TOEFL Certified</span>
+                  <span class="achievement__tag">Advanced English</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="qualification__item">
+            <div class="qualification__card">
+              <div class="qualification__header">
+                <div class="qualification__institution">
+                  <h3 class="qualification__title">
+                    Science and Technology School
+                  </h3>
+                  <span class="qualification__subtitle">STS - High School</span>
+                </div>
+                <div class="qualification__calendar">
+                  <i class="uil uil-calendar-alt"></i>
+                  <span class="qualification__year">2017 - 2020</span>
+                </div>
+              </div>
+              <div class="qualification__details">
+                <p class="qualification__description">
+                  High School Diploma with Science Focus
+                </p>
+                <div class="qualification__achievements">
+                  <span class="achievement__tag">Mathematics</span>
+                  <span class="achievement__tag">Physics</span>
+                  <span class="achievement__tag">Computer Science</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="timeline__item">
-          <div class="circle__dot"></div>
-          <h3 class="timeline__title">UI/UX Designer</h3>
-          <p class="timeline__text">Internship @ internn.pk</p>
-          <span class="timeline__data">
-            <i class="uil uil-calendar-alt"></i>
-            July - 2024</span
-          >
-        </div>
+      <!-- Experience Section -->
+      <div class="qualification__content" data-content id="experience">
+        <div class="qualification__timeline">
+          <div class="qualification__item">
+            <div class="qualification__card">
+              <div class="qualification__header">
+                <div class="qualification__institution">
+                  <h3 class="qualification__title">UI/UX Designer</h3>
+                  <span class="qualification__subtitle"
+                    >InternCraft - Remote Internship</span
+                  >
+                </div>
+                <div class="qualification__calendar">
+                  <i class="uil uil-calendar-alt"></i>
+                  <span class="qualification__year">Aug 2024</span>
+                </div>
+              </div>
+              <div class="qualification__details">
+                <p class="qualification__description">
+                  Designed user interfaces and user experiences for web
+                  applications
+                </p>
+                <div class="qualification__achievements">
+                  <span class="achievement__tag">Figma</span>
+                  <span class="achievement__tag">Prototyping</span>
+                  <span class="achievement__tag">User Research</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <div class="timeline__item">
-          <div class="circle__dot"></div>
-          <h3 class="timeline__title">Frontend Web developer</h3>
-          <p class="timeline__text">Internship @ internn.pk</p>
-          <span class="timeline__data">
-            <i class="uil uil-calendar-alt"></i>
-            June - 2024</span
-          >
-        </div>
+          <div class="qualification__item">
+            <div class="qualification__card">
+              <div class="qualification__header">
+                <div class="qualification__institution">
+                  <h3 class="qualification__title">UI/UX Designer</h3>
+                  <span class="qualification__subtitle"
+                    >Internn.pk - Remote Internship</span
+                  >
+                </div>
+                <div class="qualification__calendar">
+                  <i class="uil uil-calendar-alt"></i>
+                  <span class="qualification__year">Jul 2024</span>
+                </div>
+              </div>
+              <div class="qualification__details">
+                <p class="qualification__description">
+                  Created modern and intuitive user interface designs
+                </p>
+                <div class="qualification__achievements">
+                  <span class="achievement__tag">Mobile Design</span>
+                  <span class="achievement__tag">Web Design</span>
+                  <span class="achievement__tag">Design Systems</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <div class="timeline__item">
-          <div class="circle__dot"></div>
-          <h3 class="timeline__title">Freelancing</h3>
-          <p class="timeline__text">Freelancer @ fiverr</p>
-          <span class="timeline__data">
-            <i class="uil uil-calendar-alt"></i>
-            2023 - present</span
-          >
+          <div class="qualification__item">
+            <div class="qualification__card">
+              <div class="qualification__header">
+                <div class="qualification__institution">
+                  <h3 class="qualification__title">Frontend Web Developer</h3>
+                  <span class="qualification__subtitle"
+                    >Internn.pk - Remote Internship</span
+                  >
+                </div>
+                <div class="qualification__calendar">
+                  <i class="uil uil-calendar-alt"></i>
+                  <span class="qualification__year">Jun 2024</span>
+                </div>
+              </div>
+              <div class="qualification__details">
+                <p class="qualification__description">
+                  Developed responsive web applications using modern
+                  technologies
+                </p>
+                <div class="qualification__achievements">
+                  <span class="achievement__tag">React</span>
+                  <span class="achievement__tag">JavaScript</span>
+                  <span class="achievement__tag">Responsive Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="qualification__item">
+            <div class="qualification__card">
+              <div class="qualification__header">
+                <div class="qualification__institution">
+                  <h3 class="qualification__title">Freelance Developer</h3>
+                  <span class="qualification__subtitle"
+                    >Fiverr - Remote Freelancing</span
+                  >
+                </div>
+                <div class="qualification__calendar">
+                  <i class="uil uil-calendar-alt"></i>
+                  <span class="qualification__year">2023 - Present</span>
+                </div>
+              </div>
+              <div class="qualification__details">
+                <p class="qualification__description">
+                  Providing web development and design services to global
+                  clients
+                </p>
+                <div class="qualification__achievements">
+                  <span class="achievement__tag">Full Stack</span>
+                  <span class="achievement__tag">Client Management</span>
+                  <span class="achievement__tag">Project Delivery</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
