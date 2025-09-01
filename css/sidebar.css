@@ -85,12 +85,13 @@
   top: 2rem;
   font-size: 1.2rem;
   border-radius: 0.25rem;
-  background-color: var(--skin-color);
+  /* background: var(--skin-gradient); */
   color: var(--title-color);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: var(--z-fixed);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
 }
 
 .nav__close {
@@ -129,7 +130,6 @@
   cursor: pointer; /* Changes the cursor to hand/pointer on hover */
   transition: transform 0.2s ease;
 }
-
 
 .copy-toast {
   position: fixed;
