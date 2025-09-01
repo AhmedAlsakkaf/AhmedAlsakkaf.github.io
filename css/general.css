@@ -6,7 +6,9 @@
 
   /* HSL Color Mode */
   /* --skin-color: hsl(24, 100%, 17%); */
-  --skin-color: hsl(226, 74%, 33%);
+  --skin-color: hsl(226, 54%, 58%); 
+
+  /* --skin-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
   --title-color: hsl(var(--hue-color), 8%, 95%);
   --text-color: hsl(var(--hue-color), 8%, 85%);
   --body-color: hsl(var(--hue-color), 19%, 5%);

@@ -15,9 +15,10 @@
   align-items: center;
   justify-content: center;
   z-index: 10000;
-  transition: all 0.8s ease;
+  transition: all 0.4s ease;
   opacity: 1;
   visibility: visible;
+  will-change: opacity, visibility;
 }
 
 .loading-screen.fade-out {
@@ -120,7 +121,7 @@
     var(--first-color-alt)
   );
   width: 0%;
-  animation: progressLoad 3s ease-out forwards;
+  animation: progressLoad 1.5s ease-out forwards;
   border-radius: 2px;
 }
 
