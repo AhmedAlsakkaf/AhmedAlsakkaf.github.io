@@ -213,21 +213,32 @@ function initPortfolio() {
     // Reset the "all cards visible" state when changing filters
     allCardsVisible = false;
 
-    allCards.forEach((card, index) => {
+    // First, get all matching cards
+    const matchingCards = Array.from(allCards).filter((card) => {
+      return (
+        filterValue === "all" ||
+        card.className.includes(filterValue.replace(".", ""))
+      );
+    });
+
+    // Now handle visibility
+    allCards.forEach((card) => {
       const matchesFilter =
         filterValue === "all" ||
         card.className.includes(filterValue.replace(".", ""));
 
       if (matchesFilter) {
-        // Show cards that match filter
-        if (index < INITIAL_CARDS) {
-          // Always show first 8 matching cards
+        // Get the index of this card within matching cards
+        const matchingIndex = matchingCards.indexOf(card);
+
+        if (matchingIndex < INITIAL_CARDS) {
+          // Show first 8 matching cards
           card.style.display = "block";
           card.style.opacity = "1";
           card.style.transform = "translateY(0)";
           card.classList.remove("work__card--hidden");
         } else {
-          // Hide cards beyond initial count until load more is clicked
+          // Hide cards beyond first 8
           card.style.display = "none";
           card.style.opacity = "0";
           card.style.transform = "translateY(20px)";
