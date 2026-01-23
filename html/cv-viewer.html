@@ -1,0 +1,37 @@
+<!-- CV Viewer Modal -->
+<div id="cvModal" class="cv-modal">
+  <div class="cv-modal-content">
+    <div class="cv-modal-header">
+      <h2 class="cv-modal-title">
+        <i class="uil uil-file-alt"></i>
+        My Résumé
+      </h2>
+      <div class="cv-modal-actions">
+        <button class="cv-download-btn" onclick="downloadCV()">
+          <i class="uil uil-download-alt"></i>
+          Download PDF
+        </button>
+        <button class="cv-close-btn" onclick="closeCVModal()">
+          <i class="uil uil-times"></i>
+        </button>
+      </div>
+    </div>
+    <div class="cv-viewer-container">
+      <embed
+        id="cvPdfEmbed"
+        class="cv-pdf-embed"
+        src=""
+        type="application/pdf"
+      />
+      <div id="cvFallback" class="cv-fallback">
+        <i class="uil uil-file-download-alt"></i>
+        <h3>Unable to Display PDF</h3>
+        <p>Your browser doesn't support embedded PDFs. Please download the file to view it.</p>
+        <button class="cv-fallback-btn" onclick="downloadCV()">
+          <i class="uil uil-download-alt"></i>
+          Download CV
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

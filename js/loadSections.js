@@ -11,6 +11,7 @@ const sections = [
   { id: "services-container", file: "services.html" },
   { id: "contact-container", file: "contact.html" },
   { id: "footer-container", file: "footer.html" },
+  { id: "cv-viewer-container", file: "cv-viewer.html" },
 ];
 
 // Load all sections and return a promise for each
