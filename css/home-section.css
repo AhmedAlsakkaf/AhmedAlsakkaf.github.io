@@ -6,9 +6,6 @@
 
 /*Home Sectoin*/
 .home {
-  background: url("image3.jpg");
-  background-size: cover;
-  background-position: center center;
   height: 100vh;
 }
 
@@ -61,7 +58,43 @@
 }
 
 .home__img {
-  display: none;
+  display: block;
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 400px;
+  width: auto;
+  height: auto;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-50%) translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateY(-50%) translateX(10px) translateY(-20px);
+  }
+  50% {
+    transform: translateY(-50%) translateX(-10px) translateY(20px);
+  }
+  75% {
+    transform: translateY(-50%) translateX(10px) translateY(20px);
+  }
+  100% {
+    transform: translateY(-50%) translateX(0) translateY(0);
+  }
+}
+
+/* Disable floating animation and reset positioning for mobile */
+@media screen and (max-width: 768px) {
+  .home__img {
+    position: static;
+    transform: none;
+    animation: none;
+    margin: 0 auto;
+  }
 }
 
 .home__title {
