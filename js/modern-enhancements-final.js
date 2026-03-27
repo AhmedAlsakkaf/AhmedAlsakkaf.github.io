@@ -7,74 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
   initNavigationEnhancements();
 });
 
-// Loading Screen Animation - Optimized for Speed
+// Loading Screen is now controlled by loadSections.js
+// It hides automatically once all HTML sections are fetched
 function initLoadingScreen() {
+  // Fallback: force-hide if loadSections.js somehow never resolves
   const loadingScreen = document.getElementById("loading-screen");
-
-  if (loadingScreen) {
-    // Start hiding loading screen as soon as DOM is ready (much faster)
-    let isContentReady = false;
-
-    // Check if critical content is loaded
-    function checkContentReady() {
-      const criticalElements = document.querySelectorAll(
-        'img, link[rel="stylesheet"]'
-      );
-      let loadedCount = 0;
-      const totalCount = criticalElements.length;
-
-      if (totalCount === 0) {
-        isContentReady = true;
-        hideLoadingScreen();
-        return;
-      }
-
-      criticalElements.forEach((element) => {
-        if (element.tagName === "IMG") {
-          if (element.complete) {
-            loadedCount++;
-          } else {
-            element.onload = () => {
-              loadedCount++;
-              if (loadedCount >= totalCount) {
-                isContentReady = true;
-                hideLoadingScreen();
-              }
-            };
-          }
-        } else if (element.tagName === "LINK") {
-          loadedCount++; // CSS files are already loaded when DOM is ready
-        }
-      });
-
-      if (loadedCount >= totalCount) {
-        isContentReady = true;
-        hideLoadingScreen();
-      }
-    }
-
-    function hideLoadingScreen() {
-      if (!isContentReady) return;
-
-      // Much faster - only 300ms delay instead of 1000ms
-      setTimeout(() => {
-        loadingScreen.classList.add("fade-out");
-        setTimeout(() => {
-          loadingScreen.style.display = "none";
-        }, 300); // Faster fade out
-      }, 300);
-    }
-
-    // Start checking immediately
-    setTimeout(checkContentReady, 100);
-
-    // Fallback - force hide after maximum 2 seconds instead of waiting indefinitely
+  if (loadingScreen && loadingScreen.style.display !== "none") {
     setTimeout(() => {
-      if (!isContentReady) {
-        isContentReady = true;
-        hideLoadingScreen();
-      }
-    }, 2000);
+      loadingScreen.classList.add("fade-out");
+      setTimeout(() => { loadingScreen.style.display = "none"; }, 250);
+    }, 3000);
   }
 }
 

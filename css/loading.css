@@ -15,10 +15,9 @@
   align-items: center;
   justify-content: center;
   z-index: 10000;
-  transition: all 0.4s ease;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
   opacity: 1;
   visibility: visible;
-  will-change: opacity, visibility;
 }
 
 .loading-screen.fade-out {

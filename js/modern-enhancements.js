@@ -7,19 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigationEnhancements();
 });
 
-// Loading Screen Animation
+// Loading Screen is controlled by loadSections.js (hides after HTML sections load)
 function initLoadingScreen() {
+    // Fallback only — forces hide if loadSections.js never resolves
     const loadingScreen = document.getElementById('loading-screen');
-    
-    if (loadingScreen) {
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                loadingScreen.classList.add('fade-out');
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 500);
-            }, 1000);
-        });
+    if (loadingScreen && loadingScreen.style.display !== 'none') {
+        setTimeout(() => {
+            loadingScreen.classList.add('fade-out');
+            setTimeout(() => { loadingScreen.style.display = 'none'; }, 250);
+        }, 3000);
     }
 }
 
