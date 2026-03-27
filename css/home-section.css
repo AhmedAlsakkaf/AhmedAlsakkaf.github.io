@@ -114,64 +114,6 @@
   font-size: var(--small-font-size);
 }
 
-.my__info {
-  display: flex;
-  column-gap: 1.8rem;
-  position: absolute;
-  left: 0;
-  bottom: 1.8rem;
-}
-
-.info__item {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  padding: 1rem;
-  transition: all 0.3s ease;
-}
-
-.info__item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-3px);
-}
-
-.info__title,
-.info__subtitle {
-  font-size: var(--small-font-size);
-}
-
-.info__title {
-  font-weight: var(--font-medium);
-  color: var(--title-color);
-}
-
-.info__icon {
-  font-size: 2rem;
-  color: var(--first-color);
-  margin-right: var(--mb-0-75);
-  transition: transform 0.3s ease;
-}
-
-.info__item:hover .info__icon {
-  transform: scale(1.1);
-}
-
-.info__subtitle {
-  color: var(--text-color-light);
-}
-
-.info__subtitle a {
-  color: var(--first-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.info__subtitle a:hover {
-  color: var(--first-color-alt);
-}
 
 /*Enhanced Buttons*/
 

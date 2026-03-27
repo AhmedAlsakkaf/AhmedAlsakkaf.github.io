@@ -101,6 +101,15 @@
   font-weight: var(--font-medium);
 }
 
+/* Button row */
+.about__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 0;
+}
+
 /* Enhanced Button Styling */
 .about .button {
   background: linear-gradient(
@@ -137,4 +146,22 @@
 
 .about .button:hover .button__icon {
   transform: translateX(3px);
+}
+
+/* Email copy button — outline variant */
+.about__email {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.35);
+  color: var(--title-color);
+  font-size: var(--smaller-font-size);
+  padding: 0.75rem 1.25rem;
+}
+
+.about__email:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--title-color);
+}
+
+.about__email .button__icon {
+  color: var(--first-color);
 }
