@@ -133,6 +133,19 @@ input {
   padding: 8rem 0 5.5rem;
 }
 
+/* Match section rhythm on mobile (overrides per-component padding resets) */
+@media screen and (max-width: 768px) {
+  section.section {
+    padding: 6.5rem 0 4.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  section.section {
+    padding: 5.5rem 0 4rem;
+  }
+}
+
 .section__title {
   text-align: center;
   font-size: var(--h1-font-size);

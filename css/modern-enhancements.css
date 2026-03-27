@@ -6,6 +6,18 @@ html {
   scroll-padding-top: 120px;
 }
 
+@media screen and (max-width: 768px) {
+  html {
+    scroll-padding-top: 100px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  html {
+    scroll-padding-top: 88px;
+  }
+}
+
 /* Loading Screen */
 .loading-screen {
   position: fixed;

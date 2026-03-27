@@ -202,10 +202,6 @@
 
 /* For medium devices */
 @media screen and (max-width: 768px) {
-  .qualification {
-    padding: 1.25rem 0 0.75rem;
-  }
-
   .qualification__tabs {
     flex-direction: column;
     align-items: center;

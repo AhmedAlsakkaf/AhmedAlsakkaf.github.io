@@ -324,10 +324,6 @@
 
 /* For medium devices */
 @media screen and (max-width: 768px) {
-  .contact {
-    padding: 2rem 0;
-  }
-
   .contact__intro {
     margin-bottom: 2rem;
   }

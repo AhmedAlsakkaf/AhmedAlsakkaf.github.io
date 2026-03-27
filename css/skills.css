@@ -210,10 +210,6 @@
 
 /* For medium devices */
 @media screen and (max-width: 768px) {
-  .skills {
-    padding: 1.5rem 0 0.5rem;
-  }
-
   .skills__grid {
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 0.5rem;
