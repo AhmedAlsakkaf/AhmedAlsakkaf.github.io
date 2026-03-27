@@ -141,3 +141,18 @@ html {
     height: 45px;
   }
 }
+
+/* ===== Scroll Reveal Animations ===== */
+
+/* Hidden state — applied by JS after all sections are injected */
+.sr-hidden {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Visible state — added by IntersectionObserver when element enters viewport */
+.sr-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
