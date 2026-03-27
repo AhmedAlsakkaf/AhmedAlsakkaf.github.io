@@ -3,7 +3,7 @@
 /* Smooth scrolling enhancement */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 120px;
 }
 
 /* Loading Screen */

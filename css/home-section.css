@@ -98,20 +98,25 @@
 }
 
 .home__title {
-  font-size: var(--biggest-font-size);
+  font-size: clamp(2.125rem, 4.2vw, 3.35rem);
+  line-height: 1.12;
+  margin-bottom: var(--mb-0-75);
 }
 
 .home__subtitle {
-  font-size: var(--h3-font-size);
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
   font-weight: bold;
   margin-bottom: var(--mb-0-75);
   color: var(--skin-color);
+  line-height: 1.35;
 }
 
 .home__description {
   max-width: 500px;
   margin-bottom: var(--mb-2);
-  font-size: var(--small-font-size);
+  font-size: clamp(1rem, 1.35vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--text-color);
 }
 
 
