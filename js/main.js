@@ -284,11 +284,17 @@ function initPortfolio() {
   /*===== Work Popup =====*/
 
   document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("work__button")) {
+    if (e.target.classList.contains("work__button") || e.target.closest(".work__button")) {
       togglePortfolioPopup();
-      // Find the closest work card container
       const workCard = e.target.closest(".work__card");
       portfolioItemDetails(workCard);
+      return;
+    }
+
+    // Click anywhere else on the card opens the project link
+    const workCard = e.target.closest(".work__card");
+    if (workCard && workCard.dataset.link) {
+      window.open(workCard.dataset.link, "_blank", "noopener,noreferrer");
     }
   });
 
