@@ -259,7 +259,8 @@
 .work__load-btn {
   background: linear-gradient(135deg, var(--skin-color), var(--first-color));
   color: white;
-  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  outline: none;
   padding: 1rem 2rem;
   border-radius: 2rem;
   font-size: var(--normal-font-size);
@@ -275,6 +276,7 @@
 .work__load-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.65);
 }
 
 .work__load-btn:active {

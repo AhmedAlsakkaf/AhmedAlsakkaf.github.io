@@ -135,7 +135,8 @@
     var(--first-color-alt)
   );
   color: var(--container-color);
-  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  outline: none;
   border-radius: 2rem;
   padding: 1rem 2rem;
   font-size: var(--normal-font-size);
@@ -154,6 +155,7 @@
 .form__button:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.65);
 }
 
 .button__text,

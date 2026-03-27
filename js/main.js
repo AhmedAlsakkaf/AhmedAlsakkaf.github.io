@@ -9,10 +9,8 @@ function initPortfolio() {
 
   const phrases = [
     "Software Engineer",
-    "Frontend Developer",
-    "UI/UX Designer",
-    "Backend Developer",
-    "Digital Marketer",
+    "Full Stack Developer",
+    "UI/UX Designer`"
   ];
   const el = document.getElementById("typewriter");
 
